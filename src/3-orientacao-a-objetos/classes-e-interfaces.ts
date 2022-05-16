@@ -41,21 +41,54 @@ class Jogo {
     }
 }
 
-class JogoComDescricao extends Jogo {
-    private descricao;
+// class JogoComDescricao extends Jogo {
+//     private descricao;
     
-    constructor(nome: string, descricao: string) {
-        super(nome);
+//     constructor(nome: string, descricao: string) {
+//         super(nome);
 
-        this.descricao = descricao;
-    }
+//         this.descricao = descricao;
+//     }
 
-    dizerNomeComDescricao() {
-        return `O nome do jogo é ${this.nome}`
-    }
-}
+//     dizerNomeComDescricao() {
+//         return `O nome do jogo é ${this.nome}`
+//     }
+// }
 
 const ghost = new Jogo('Ghost of Tsushima');
 console.log(ghost.dizerNome);
 
-const ghostComDescricao = new JogoComDescricao('Ghost of Tsushima', 'é um jogo muito legal!');
+//const ghostComDescricao = new JogoComDescricao('Ghost of Tsushima', 'é um jogo muito legal!');
+
+//Interfaces 
+interface IJogoComDescricao {
+    //nome: string
+    descricao: string;
+    dizerNomeComDescricao(): string;
+}
+// ----------------------------------> implements
+// class JogoComDescricao extends Jogo implements IJogoComDescricao{
+//     public descricao;
+    
+//     constructor(nome: string, descricao: string) {
+//         super(nome);
+
+//         this.descricao = descricao;
+//     }
+
+//     dizerNomeComDescricao() {
+//         return `O nome do jogo é ${this.nome}`
+//     }
+// }
+
+//interface funciona exatamente como type alias:
+// type IJogoComDescricao = {
+//     descricao: string,
+//     dizerNomeComDescricao(): string
+// }
+const obj: IJogoComDescricao = {
+    descricao: 'descricao do jogo',
+    dizerNomeComDescricao() {
+        return '123';
+    }
+}
